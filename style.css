@@ -138,3 +138,21 @@ body.dark-mode #ai-input {
   background: #2a2a2a;
   color: #f1f1f1;
   }
+#lang-select {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+body.dark-mode #lang-select {
+  background: rgba(30, 30, 30, 0.85);
+  color: #f1f1f1;
+                   }
