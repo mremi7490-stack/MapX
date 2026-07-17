@@ -187,3 +187,77 @@ function askAI() {
 
 aiSendBtn.addEventListener('click', askAI);
 aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') askAI(); });
+// ===== LANGUAGE TRANSLATION =====
+const translations = {
+  en: {
+    searchPlaceholder: "Search a place...",
+    searchBtn: "Search",
+    sosBtn: "🚨 SOS",
+    aiGreeting: "Hi! Ask me about places, food, weather, or hospitals nearby.",
+    aiPlaceholder: "Ask me anything...",
+    askBtn: "Ask",
+    coordDefault: "Click the map to see coordinates"
+  },
+  ur: {
+    searchPlaceholder: "کوئی جگہ تلاش کریں...",
+    searchBtn: "تلاش کریں",
+    sosBtn: "🚨 ایمرجنسی",
+    aiGreeting: "السلام علیکم! مجھ سے جگہوں، کھانے، موسم یا ہسپتالوں کے بارے میں پوچھیں۔",
+    aiPlaceholder: "کچھ بھی پوچھیں...",
+    askBtn: "پوچھیں",
+    coordDefault: "نقاط دیکھنے کے لیے نقشے پر کلک کریں"
+  },
+  ar: {
+    searchPlaceholder: "ابحث عن مكان...",
+    searchBtn: "بحث",
+    sosBtn: "🚨 طوارئ",
+    aiGreeting: "مرحباً! اسألني عن الأماكن أو الطعام أو الطقس أو المستشفيات القريبة.",
+    aiPlaceholder: "اسألني أي شيء...",
+    askBtn: "اسأل",
+    coordDefault: "انقر على الخريطة لرؤية الإحداثيات"
+  },
+  fr: {
+    searchPlaceholder: "Rechercher un lieu...",
+    searchBtn: "Rechercher",
+    sosBtn: "🚨 SOS",
+    aiGreeting: "Bonjour! Demandez-moi des lieux, de la nourriture, la météo ou des hôpitaux à proximité.",
+    aiPlaceholder: "Demandez-moi n'importe quoi...",
+    askBtn: "Demander",
+    coordDefault: "Cliquez sur la carte pour voir les coordonnées"
+  },
+  es: {
+    searchPlaceholder: "Buscar un lugar...",
+    searchBtn: "Buscar",
+    sosBtn: "🚨 SOS",
+    aiGreeting: "¡Hola! Pregúntame sobre lugares, comida, clima u hospitales cercanos.",
+    aiPlaceholder: "Pregúntame lo que sea...",
+    askBtn: "Preguntar",
+    coordDefault: "Haz clic en el mapa para ver las coordenadas"
+  },
+  zh: {
+    searchPlaceholder: "搜索地点...",
+    searchBtn: "搜索",
+    sosBtn: "🚨 紧急求助",
+    aiGreeting: "你好！可以问我关于地点、美食、天气或附近医院的问题。",
+    aiPlaceholder: "问我任何问题...",
+    askBtn: "提问",
+    coordDefault: "点击地图查看坐标"
+  }
+};
+
+const langSelect = document.getElementById('lang-select');
+
+function applyLanguage(lang) {
+  const t = translations[lang];
+  document.getElementById('search-input').placeholder = t.searchPlaceholder;
+  document.getElementById('search-btn').textContent = t.searchBtn;
+  document.getElementById('sos-btn').textContent = t.sosBtn;
+  document.getElementById('ai-input').placeholder = t.aiPlaceholder;
+  document.getElementById('ai-send-btn').textContent = t.askBtn;
+  document.getElementById('coord-box').textContent = t.coordDefault;
+  aiChatLog.innerHTML = `<p><b>MapX AI:</b> ${t.aiGreeting}</p>`;
+}
+
+langSelect.addEventListener('change', (e) => {
+  applyLanguage(e.target.value);
+});
