@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapX</title>
-
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div id="map"></div>
 
-  <div id="coord-box">
-    Click the map to see coordinates
+  <div id="search-box">
+    <input type="text" id="search-input" placeholder="Search a place..." />
+    <button id="search-btn">Search</button>
   </div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <button id="theme-toggle">🌙</button>
+  <button id="sos-btn">🚨 SOS</button>
 
+  <div id="coord-box">Click the map to see coordinates</div>
+
+  <div id="ai-assistant">
+    <div id="ai-chat-log"><p><b>MapX AI:</b> Hi! Ask me about places, food, weather, or hospitals nearby.</p></div>
+    <div id="ai-input-row">
+      <input type="text" id="ai-input" placeholder="Ask me anything..." />
+      <button id="ai-send-btn">Ask</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
-                            </html>
+</html>
